@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                echo 'Cloning from GitHub...'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'python app.py'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'echo Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                bat 'echo Deployment successful!'
+            }
+        }
+    }
+}
